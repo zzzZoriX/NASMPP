@@ -1,0 +1,12 @@
+global start
+
+section .text : {
+func{
+    rax = rbx !
+    return !
+}
+
+start{
+    call func(rbx = 10) !
+}
+}
