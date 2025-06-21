@@ -14,6 +14,7 @@ typedef unsigned long   u64;
 typedef long            s64;
 
 
+#define COUNT_OF_REGISTERS 77
 const std::string registers[] 
 {
     // 8 bit
