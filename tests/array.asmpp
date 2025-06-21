@@ -1,0 +1,18 @@
+global start
+
+section .text : {
+start{
+    rax = from(.data)=>array !
+
+    loop(rcx = 4){
+        ++[rax] !   ; increase as value
+        ++rax !     ; increase as address
+        
+        endloop !
+    }
+}
+}
+
+section .data : {
+array: db [10, 20, 30, 40] !
+}

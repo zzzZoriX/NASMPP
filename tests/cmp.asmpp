@@ -3,8 +3,11 @@ global start !
 section .text : {
 start{
     rax = 10 !
-    rbx = rax !
+    cmp(rax > 5) ~ ret !
 
+    rax = 2 !
+
+ret:
     return !
 }
 }

@@ -1,0 +1,13 @@
+global start
+
+section .text : {
+start{
+    rax = 10 !
+
+    output(rax) !
+
+    input(rax) !
+
+    output(rax) !
+}
+}

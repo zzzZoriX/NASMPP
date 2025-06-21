@@ -1,0 +1,12 @@
+global start !
+
+section .text : {
+start{
+    rax = 0 !
+    loop(rcx = 5){
+        ++rax !
+        
+        endloop !
+    }
+}
+}
