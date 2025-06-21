@@ -1,6 +1,8 @@
 #ifndef ERRORHANDLER_H
 #define ERRORHANDLER_H
 
+#include "Common.h"
+
 #include <cstdlib>
 #include <iostream>
 
@@ -9,13 +11,13 @@
  * 
  */
 [[noreturn]] void
-_abort(const int);
+_abort(const s32);
 
 /**
  * @brief print msg and abort program w exit_code from params
  * 
  */
 [[noreturn]] void
-_abort_w_msg(const char*, const int);
+_abort_w_msg(const s8*, const s32);
 
 #endif //ERRORHANDLER_H

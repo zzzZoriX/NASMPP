@@ -1,10 +1,12 @@
 #ifndef COMMANDHANDLER_H
 #define COMMANDHANDLER_H
 
+#include "Common.h"
+
 #include <string>
 #include <cstring>
 
-enum CmdParseResults : int {
+enum CmdParseResults : s32 {
     SUCCES_BUT_WO_OTP,
     SUCCES,
 
@@ -17,6 +19,6 @@ enum CmdParseResults : int {
  * @return const CmdParseResults 
  */
 const CmdParseResults
-_parse_call_command(const std::string[], const int, int* const, int* const, std::string*);
+_parse_call_command(const std::string[], const s32, s32* const, s32* const, std::string*);
 
 #endif //COMMANDHANDLER_H
