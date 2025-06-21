@@ -1,10 +1,11 @@
 #include "./lib/dot_h/ErrorHandler.h"
 #include "./lib/dot_h/CommandHandler.h"
+#include "./lib/dot_h/Common.h"
 
 #define DEFAULT_OTP_FILE_NAME "a.o"
 
-int
-main(int argc, char** argv){
+s32
+main(s32 argc, s8** argv){
     if(argc < 2)
         _abort_w_msg(
             "Too few arguments! Correct use is:\n"
@@ -18,10 +19,10 @@ main(int argc, char** argv){
 
     std::string cmd_words[argc];
 
-    for(int i = 0; i < argc; ++i)
+    for(s32 i = 0; i < argc; ++i)
         cmd_words[i] = std::string(argv[i]);
 
-    int
+    s32
         start_inp_files = 0,
         end_inp_files = 0
     ;
