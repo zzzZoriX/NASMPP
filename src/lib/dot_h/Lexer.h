@@ -1,13 +1,16 @@
 #ifndef LEXER_H
 #define LEXER_H
 
+#include "Common.h"
+#include "ErrorHandler.h"
+
 #include <fstream>
 #include <string>
 
 namespace NASMPPLexer {
 
 typedef enum 
-Lexeme : int {
+Lexeme : s32 {
 // COMMANDS
     GLOBAL_LEX,
     SECTION_LEX,
@@ -54,6 +57,7 @@ Lexeme : int {
 // OTHER
     NUMBER_LEX,
     REG_NAME_LEX,
+    UNDEFINE_LEX
 } Lexeme;
 
 typedef struct 
@@ -68,8 +72,47 @@ Token {
  * 
  * @return Token** 
  */
-Token**
-Lexer(std::ifstream);
+Token*
+Lexer(std::ifstream&);
+
+/**
+ * @brief define lexeme by word
+ * 
+ * @return Lexeme 
+ */
+Lexeme
+_define_lexeme(const std::string&);
+
+/**
+ * @brief checks symbol for if it is a specific symbol return true else false
+ * 
+ * @return true 
+ * @return false 
+ */
+bool
+is_spec(const s8);
+
+/**
+ * @brief checks str for if it is a specific string return true else false
+ * 
+ * @return true 
+ * @return false 
+ */
+bool
+is_spec_str(const std::string&);
+
+// overload
+bool
+is_spec_str(const s8*);
+
+/**
+ * @brief checks str for if it is a register name
+ * 
+ * @return true 
+ * @return false 
+ */
+bool
+is_reg_name(const std::string&);
 
 }
 
