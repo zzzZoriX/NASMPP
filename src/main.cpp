@@ -1,8 +1,11 @@
 #include "./lib/dot_h/ErrorHandler.h"
 #include "./lib/dot_h/CommandHandler.h"
 #include "./lib/dot_h/Common.h"
+#include "./lib/dot_h/Lexer.h"
+#include "./lib/dot_h/Debug.h"
 
 #define DEFAULT_OTP_FILE_NAME "a.o"
+#define DEBUG
 
 s32
 main(s32 argc, s8** argv){
@@ -34,6 +37,16 @@ main(s32 argc, s8** argv){
         &start_inp_files, &end_inp_files,
         &output_file_name
     );
+
+    for(s32 i = start_inp_files; i < end_inp_files; ++i){
+        std::ifstream input_file(argv[i]);
+
+        NASMPPLexer::Token* tokens = NASMPPLexer::Lexer(input_file);
+
+#ifdef DEBUG
+        DEBUG_PRINT_TOKENS(tokens);
+#endif
+    }
 
     return 0;
 }
