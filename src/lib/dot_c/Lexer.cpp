@@ -21,7 +21,7 @@ _create_token(std::string& word){
 }
 
 Token*
-Lexer(std::ifstream& ifp){
+NASMPPLexer::Lexer(std::ifstream& ifp){
     Token
         * tokens,
         * current_token = tokens
@@ -78,7 +78,7 @@ Lexer(std::ifstream& ifp){
 }
 
 Lexeme
-_define_lexeme(const std::string& str){
+NASMPPLexer::_define_lexeme(const std::string& str){
     if(str == "global")     return GLOBAL_LEX;
     if(str == "section")    return SECTION_LEX;
     if(str[0] == '.')       return SECTION_NAME_LEX;
@@ -124,7 +124,7 @@ _define_lexeme(const std::string& str){
 }
 
 bool
-is_spec(char c){
+NASMPPLexer::is_spec(char c){
     return 
         c == '!' ||
         c == '(' ||
@@ -144,7 +144,7 @@ is_spec(char c){
 }
 
 bool
-is_spec_str(const std::string& str){
+NASMPPLexer::is_spec_str(const std::string& str){
     return
         str == "++" ||
         str == "--" ||
@@ -157,12 +157,12 @@ is_spec_str(const std::string& str){
 }
 
 bool
-is_spec_str(const s8* str){
+NASMPPLexer::is_spec_str(const s8* str){
     return NASMPPLexer::is_spec_str(std::string(str));
 }
 
 bool 
-is_reg_name(const std::string& str){
+NASMPPLexer::is_reg_name(const std::string& str){
     for(s8 i = 0; i < COUNT_OF_REGISTERS; ++i)
         if(str == registers[i]) return true;
 
