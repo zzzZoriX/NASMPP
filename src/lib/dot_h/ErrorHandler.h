@@ -20,4 +20,7 @@ _abort(const s32);
 [[noreturn]] void
 _abort_w_msg(const s8*, const s32);
 
+[[noreturn]] void
+_abort_w_msg(const std::string&, const s32);
+
 #endif //ERRORHANDLER_H
